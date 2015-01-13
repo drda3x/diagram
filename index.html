@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="diagram">
+<head>
+    <meta charset="utf-8" />
+    <title>Линейная диаграмма на angular.js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/line_diagram.js"></script>
+    <script type="text/javascript">
+        var vv = 12;
+        /*
+         * 1. Получить массив данных
+         * 2. Отобразить на диаграмме
+         * */
+        var test_data = [
+            {
+                label: '56',
+                data: [
+                    {
+                        begin: new Date(2015, 1, 1, 0, 0),
+                        end: new Date(2015, 1, 1, 0, 15),
+                        color: '#8ac8ff'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 15),
+                        end: new Date(2015, 1, 1, 0, 25),
+                        color: '#fd5e53'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 25),
+                        end: new Date(2015, 1, 1, 0, 50),
+                        color: '#0F8B4B'
+                    }
+                ]
+            },
+            {
+                label: '057',
+                data: [
+                    {
+                        begin: new Date(2015, 1, 1, 0, 0),
+                        end: new Date(2015, 1, 1, 0, 15),
+                        color: '#8ac8ff'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 15),
+                        end: new Date(2015, 1, 1, 0, 30),
+                        color: '#fd5e53'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 30),
+                        end: new Date(2015, 1, 1, 0, 45),
+                        color: '#0F8B4B'
+                    }
+                ]
+            },
+            {
+                label: 'some_big_label',
+                data: [
+                    {
+                        begin: new Date(2015, 1, 1, 0, 0),
+                        end: new Date(2015, 1, 1, 0, 15),
+                        color: '#8ac8ff'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 15),
+                        end: new Date(2015, 1, 1, 0, 30),
+                        color: '#fd5e53'
+                    },
+                    {
+                        begin: new Date(2015, 1, 1, 0, 30),
+                        end: new Date(2015, 1, 1, 0, 45),
+                        color: '#0F8B4B'
+                    }
+                ]
+            }
+        ];
+
+        function testCtrl($scope) {
+            $scope.test_data = test_data;
+            $scope.from = new Date(2015, 1, 1);
+            $scope.to = new Date(2015, 1, 1, 1);
+        }
+
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/diagram.css" />
+</head>
+<body ng-controller="testCtrl">
+<line-diagram from="from" to="to" width="100%" height="500" data="test_data"></line-diagram>
+</body>
+</html>
